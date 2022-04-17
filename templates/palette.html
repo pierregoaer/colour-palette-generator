@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+
+</head>
+    <body>
+        {% if file%}
+            <img src="{{ url_for('static', filename='images/' + file) }}" style="width: 100px">
+            <div class="colour-palette-grid">
+                {% for colour in colours %}
+                    <div class="colour-item" style="background-color: {{ colour[1] }}">
+                        <p>RGB: {{ colour[0] }}</p>
+                        <p>HEX: {{ colour[1] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </body>
+</html>

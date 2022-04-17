@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+    <script src="https://kit.fontawesome.com/0b43836304.js" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
+</head>
+<body>
+    <h1>Hello World</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+      <p><input type="file" name="file" accept="image/*" required="required"></p>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+
+    {% if file%}
+        <img src="{{ url_for('static', filename='images/' + file) }}" class="uploaded-image">
+        <div class="colour-palette-grid">
+            {% for colour in colours %}
+                <div class="colour-item" style="background-color: {{ colour[1] }}">
+                    <div class="colour-patch"></div>
+                    <div class="colour-text">
+                        <p>RGB: {{ colour[0] }}</p>
+                        <p>HEX: {{ colour[1] }}</p>
+                        <p class="copy-hex-code" title="Copy HEX code" data-colour="{{ colour[1] }}"><i class="fa-regular fa-copy"></i></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
