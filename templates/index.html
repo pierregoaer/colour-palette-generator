@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Colour Palette Generator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
     <script src="https://kit.fontawesome.com/0b43836304.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <h1>Color Palette Generator</h1>
+    <h1>Colour Palette Generator</h1>
     <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
-      <p><input type="file" name="file" accept="image/*" required="required"></p>
+        <p><input type="file" name="file" accept="image/*" required="required"></p>
         <p><label>Select the number of colours:</label></p>
         <p><input type="range" class="num-colours-slider" name="colours"
          min="1" value="5" max="10"></p>
         <p class="slider-output">5 colours</p>
-
-
-      <p><input type="submit" value="Upload Image"></p>
+        <p><input type="submit" value="Upload Image"></p>
     </form>
 
     {% if file%}
+        <h2>Your Image</h2>
         <img src="{{ url_for('static', filename='images/' + file) }}" class="uploaded-image">
+        <h2>Your Palette</h2>
         <div class="colour-palette-grid">
             {% for colour in colours %}
                 <div class="colour-item" style="background-color: {{ colour[1] }}">

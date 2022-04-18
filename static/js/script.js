@@ -15,6 +15,7 @@ hexCodeCopyButtons.forEach( button =>
 // ----- Change number of colours on slider input -----
 const coloursSlider = document.querySelector(".num-colours-slider")
 const output = document.querySelector(".slider-output");
+coloursSlider.value = 5;
 
 coloursSlider.oninput = function() {
     suffix = this.value == 1 ? " colour" :" colours"

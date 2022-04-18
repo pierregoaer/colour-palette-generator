@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
 a {
 	text-decoration: none !important;
 }
@@ -9,7 +11,7 @@ ul {
 * {
 	margin: 0;
 	padding: 0;
-	font-family: verdana;
+	font-family: roboto;
 	box-sizing: border-box;
 }
 
@@ -18,8 +20,8 @@ html {
 }
 
 body {
-    padding: 30px;
-    max-width: 1200px;
+    padding: 50px 10px;
+    max-width: 80vw;
     margin: 50px auto;
     background-color: white;
     border-radius: 12px;
@@ -34,12 +36,44 @@ h1 {
 form {
     display: inline-block;
     margin-bottom: 40px;
+    padding: 40px 100px;
+    border-radius: 12px;
+    background-color: #ff780026;
+}
+
+form input[type=file]{
+    margin-bottom: 25px;
+
+}
+
+form label {
+
+}
+form input[type=range]{
+
+}
+
+form .slider-output{
+    margin-bottom: 20px;
+}
+
+form input[type=submit] {
+    background-color: white;
+    color: #ff7800;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+form input[type=submit]:hover {
+    cursor: pointer;
 }
 
 .uploaded-image {
     display: block;
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: 20px auto 60px auto;
 }
 
 .colour-palette-grid {
@@ -85,3 +119,34 @@ form {
     color: teal;
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 800px) {
+    body {
+        max-width: 90vw;
+        margin: 40px auto;
+    }
+
+    .uploaded-image {
+        width: 100%;
+    }
+
+    .colour-palette-grid {
+	    grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	form {
+	    width: 90%;
+        padding: 40px 0;
+    }
+
+
+
+    .colour-palette-grid {
+	    grid-template-columns: 1fr 1fr;
+	}
+
+}
+
+
