@@ -13,8 +13,31 @@ ul {
 	box-sizing: border-box;
 }
 
+html {
+    background-color: #00c3ff36;
+}
+
+body {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 12px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+form {
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
 .uploaded-image {
-    display:block;
+    display: block;
     max-width: 400px;
     margin: 20px auto;
 }
@@ -37,7 +60,7 @@ ul {
 }
 
 .colour-patch {
-    height: 100px;
+    height: 80px;
 }
 
 .colour-text {

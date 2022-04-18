@@ -18,6 +18,10 @@ filename = None
 
 @app.route('/')
 def index():
+    # delete all the images in UPLOAD_FOLDER since we do not want to store them after upload
+    # could be improved
+    for f in os.listdir(UPLOAD_FOLDER):
+        os.remove(os.path.join(UPLOAD_FOLDER, f))
     return render_template('index.html', file=None, colours=None)
 
 
@@ -29,11 +33,12 @@ def upload_file():
         filename = secure_filename(uploaded_file.filename)
         uploaded_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         file_path = f"{UPLOAD_FOLDER}/{filename}"
-        extracted_colours = colorgram.extract(file_path, 10)
+        num_colours = int(request.form['colours'])
+        extracted_colours = colorgram.extract(file_path, num_colours)
         img_colours = []
         for colour in extracted_colours:
             rgb = (colour.rgb.r, colour.rgb.g, colour.rgb.b)
-            new_colour = [rgb, "#" + '%02x%02x%02x' % rgb]
+            new_colour = [rgb, "#" + ('%02x%02x%02x' % rgb).upper()]
             img_colours.append(new_colour)
         return render_template('index.html', file=filename, colours=img_colours)
         

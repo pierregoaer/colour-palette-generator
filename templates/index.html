@@ -9,8 +9,14 @@
 </head>
 <body>
     <h1>Color Palette Generator</h1>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
       <p><input type="file" name="file" accept="image/*" required="required"></p>
+        <p><label>Select the number of colours:</label></p>
+        <p><input type="range" class="num-colours-slider" name="colours"
+         min="1" value="5" max="10"></p>
+        <p class="slider-output">5 colours</p>
+
+
       <p><input type="submit" value="Upload Image"></p>
     </form>
 
