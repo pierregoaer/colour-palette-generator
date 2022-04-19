@@ -33,7 +33,7 @@ Deployment:
 1. Select a file from your device (also work with camera library on mobile)
 2. Select how many colours you'd like to extract from the image
 3. Click "Upload image"
-![](README_images/colour_palette_file_selection.png)
+![](assets/colour_palette_file_selection.png)
 4. The app gives you a grid of the most used colours in this specific image
 5. Copy the HEX codes directly from the application
-![](README_images/colour_palette_final.png)
+![](assets/colour_palette_final.png)
