@@ -32,6 +32,8 @@ def upload_file():
         data = io.BytesIO()
         uploaded_file.save(data, "JPEG")
         encoded_img_data = base64.b64encode(data.getvalue())
+        decoded_img_data = encoded_img_data.decode('utf-8')
+        img_data = f"data:image/jpeg;base64,{decoded_img_data}"
 
         # extract colours from image
         num_colours = int(request.form['colours'])
@@ -43,7 +45,7 @@ def upload_file():
             rgb = (colour.rgb.r, colour.rgb.g, colour.rgb.b)
             new_colour = [rgb, "#" + ('%02x%02x%02x' % rgb).upper()]
             img_colours.append(new_colour)
-        return render_template('index.html', colours=img_colours, img_data=encoded_img_data.decode('utf-8'))
+        return render_template('index.html', colours=img_colours, img_data=img_data)
     else:
         return render_template('index.html', img_data=None, colours=None)
 

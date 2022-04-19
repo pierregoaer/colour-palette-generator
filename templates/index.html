@@ -20,7 +20,7 @@
 
     {% if img_data %}
         <h2>Your Image</h2>
-        <img src="data:image/jpeg;base64,{{ img_data }}" class="uploaded-image">
+        <img src=" {{ img_data }} " class="uploaded-image">
         <h2>Your Palette</h2>
         <div class="colour-palette-grid">
             {% for colour in colours %}
