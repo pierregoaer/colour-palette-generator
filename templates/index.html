@@ -29,7 +29,7 @@
                     <div class="colour-text">
                         <p>RGB: {{ colour[0] }}</p>
                         <p>HEX: {{ colour[1] }}</p>
-                        <p class="copy-hex-code" title="Copy HEX code" data-colour="{{ colour[1] }}"><i class="fa-regular fa-copy"></i></p>
+                        <p class="copy-hex-code" title="Copy HEX code" data-colour="{{ colour[1][1:] }}"><i class="fa-regular fa-copy"></i></p>
                     </div>
                 </div>
             {% endfor %}
